@@ -6,6 +6,7 @@
     "node": ">=0.4.7"
   },
   "dependencies": {
-    "handlebars": "1.0.x"
+    "handlebars": "1.0.x",
+    "watchr": "2.1.x"
   }
 }
