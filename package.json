@@ -1,0 +1,12 @@
+{
+  "name": "tessellate",
+  "description": "Client side template compiler for designing in code",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=0.4.7"
+  },
+  "dependencies": {
+    "handlebars": "1.0.x",
+    "underscore": "1.4.x"
+  }
+}
