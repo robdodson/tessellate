@@ -4,7 +4,7 @@ Tessellate watches your project directory and writes your handlebars templates t
 
 ## TODO
 
-- Conver to `npm` package
+- Convert to `npm` package
 - Command line and CLI config options
-- If the dist folder doesn't exist, create it
+- Tidy HTML?
 - Register partials on a new .handlebars event

@@ -1,7 +1,7 @@
 'use strict';
 
-// TODO: If the dist folder doesn't exist, create it
 // TODO: Command line and CLI config options
+// TODO: Tidy HTML?
 // TODO: Register partials on a new .handlebars event
 
 var fs = require('fs'),
@@ -22,6 +22,11 @@ var settings = {
   // show up immediately.
   partialCompileAll: true
 };
+
+// Make sure our output dir exists
+if (!fs.existsSync(settings.outputDir)) {
+  fs.mkdirSync(settings.outputDir);
+}
 
 // Make sure all of our partials are registered
 registerPartials();
