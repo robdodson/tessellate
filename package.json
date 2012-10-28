@@ -6,7 +6,6 @@
     "node": ">=0.4.7"
   },
   "dependencies": {
-    "handlebars": "1.0.x",
-    "underscore": "1.4.x"
+    "handlebars": "1.0.x"
   }
 }
