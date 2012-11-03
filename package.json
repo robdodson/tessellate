@@ -15,12 +15,13 @@
   },
   "main": "lib/tessellate.js",
   "bin": {
-    "tessellate": "bin/tesselate"
+    "tessellate": "bin/tessellate.js"
   },
   "preferGlobal": "true",
   "dependencies": {
-    "handlebars": "1.0.x",
-    "watchr": "2.1.x"
+    "handlebars": "~1.0",
+    "watchr": "~2.1",
+    "commander": "~1.0"
   },
   "devDependencies": {},
   "scripts": {
