@@ -2,11 +2,7 @@
   "name": "tessellate",
   "description": "Client side template compiler for designing in code",
   "version": "0.0.1",
-  "author": {
-    "name": "Rob Dodson",
-    "email": "lets.email.rob@gmail.com",
-    "url": "http://robdodson.me"
-  },
+  "author": "Rob Dodson <lets.email.rob@gmail.com> (http://robdodson.me)",
   "keywords": [
     "tessellate handlebars mustache template html"
   ],
@@ -24,5 +20,10 @@
   "dependencies": {
     "handlebars": "1.0.x",
     "watchr": "2.1.x"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "BSD"
 }
