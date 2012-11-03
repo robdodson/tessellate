@@ -17,6 +17,7 @@
   "bin": {
     "tessellate": "bin/tesselate"
   },
+  "preferGlobal": "true",
   "dependencies": {
     "handlebars": "1.0.x",
     "watchr": "2.1.x"
