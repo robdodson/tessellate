@@ -1,7 +1,7 @@
 {
   "name": "tessellate",
   "description": "Client side template compiler for designing in code",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Rob Dodson <lets.email.rob@gmail.com> (http://robdodson.me)",
   "keywords": [
     "tessellate handlebars mustache template html"
