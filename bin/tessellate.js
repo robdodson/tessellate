@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-// TODO: Handle no context file
 // TODO: Tidy HTML?
 // TODO: Register partials on a new .handlebars event
+// TODO: Indicate the name of a missing partial
 
 'use strict';
 
@@ -93,14 +93,22 @@ function registerPartials() {
 // to a new file
 function compile(filePath) {
   fs.readFile(filePath, 'utf8', function(err, data) {
-    var source, template, context, html;
+    var source, template, contextPath, context, html;
 
     if (err) return console.log(err);
 
     source = data;
     template = Handlebars.compile(source);
-    context = require('./' + path.join(settings.contextsDir, path.basename(filePath, settings.baseExtension)));
-    html = template(context);
+    // Check to see if a context file exists, if so
+    // add it to the template. Otherwise send in a
+    // blank object
+    contextPath = './' + path.join(settings.contextsDir, path.basename(filePath, settings.baseExtension));
+    if (fs.existsSync(contextPath)) {
+      context = require(contextPath);
+      html = template(context);
+    } else {
+      html = template({});
+    }
 
     fs.writeFile(path.join(settings.outputDir, path.basename(filePath)), html, function (err) {
       if (err) return console.log(err);

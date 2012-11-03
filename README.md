@@ -7,3 +7,4 @@ Tessellate watches your project directory and writes your handlebars templates t
 - Handle no context file
 - Tidy HTML?
 - Register partials on a new .handlebars event
+- Indicate the name of a missing partial
