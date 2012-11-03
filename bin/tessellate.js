@@ -103,8 +103,8 @@ function compile(filePath) {
     // add it to the template. Otherwise send in a
     // blank object
     contextPath = './' + path.join(settings.contextsDir, path.basename(filePath, settings.baseExtension));
-    if (fs.existsSync(contextPath)) {
-      context = require(contextPath);
+    if (fs.existsSync(contextPath + '.js')) {
+      context = require(path.resolve(contextPath));
       html = template(context);
     } else {
       html = template({});
