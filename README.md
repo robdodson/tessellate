@@ -41,3 +41,20 @@ If you want to pass some data to a tessellate template just create a CommonJS fi
 
 ### Getting Help
 
+To see a full list of Tessellate options run `tessellate --help`
+
+```
+Usage: tessellate [options]
+
+  Options:
+
+    -h, --help                     output usage information
+    -V, --version                  output the version number
+    -d, --dir <path>               the location of your template files [./]
+    -p, --partials-dir <path>      the location of your partial files [./partials]
+    -c, --contexts-dir <path>      the location of your context files [./contexts]
+    -o, --output-dir <path>        where to output files [./dist]
+    -e, --extension <ext>          template file extension [.html]
+    -E, --partial-extension <ext>  partial file extension [.handlebars]
+    -C, --no-partial-compile-all   disable compile all on partial change
+```
