@@ -1,12 +1,30 @@
 {
   "name": "tessellate",
   "description": "Client side template compiler for designing in code",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "author": "Rob Dodson <lets.email.rob@gmail.com> (http://robdodson.me)",
+  "keywords": [
+    "tessellate handlebars mustache template html"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/robdodson/tessellate.git"
+  },
   "engines": {
     "node": ">=0.4.7"
   },
+  "bin": {
+    "tessellate": "bin/tessellate.js"
+  },
+  "preferGlobal": "true",
   "dependencies": {
-    "handlebars": "1.0.x",
-    "watchr": "2.1.x"
-  }
+    "handlebars": "~1.0",
+    "watchr": "~2.1",
+    "commander": "~1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "BSD"
 }
