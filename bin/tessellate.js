@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // TODO: Tidy HTML?
-// TODO: Register partials on a new .handlebars event
+// TODO: Register partials on a new .mustache event
 // TODO: Indicate the name of a missing partial
 
 'use strict';
@@ -14,13 +14,13 @@ var program = require('commander'),
 
 // Commander
 program
-  .version('0.0.1')
+  .version('0.1.0')
   .option('-d, --dir <path>', 'the location of your template files [./]', String, './')
   .option('-p, --partials-dir <path>', 'the location of your partial files [./partials]', String, './partials')
   .option('-c, --contexts-dir <path>', 'the location of your context files [./contexts]', './contexts')
   .option('-o, --output-dir <path>', 'where to output files [./dist]', './dist')
   .option('-e, --extension <ext>', 'template file extension [.html]', '.html')
-  .option('-E, --partial-extension <ext>', 'partial file extension [.handlebars]', '.handlebars')
+  .option('-E, --partial-extension <ext>', 'partial file extension [.mustache]', '.mustache')
   .option('-C, --no-partial-compile-all', 'disable compile all on partial change')
   .parse(process.argv);
 
@@ -93,7 +93,7 @@ function registerPartials() {
   return partials;
 }
 
-// Run our file through handlebars and write the output
+// Run our file through hogan and write the output
 // to a new file
 function compile(filePath) {
   fs.readFile(filePath, 'utf8', function(err, data) {
@@ -114,8 +114,6 @@ function compile(filePath) {
     } else {
       html = template.render({});
     }
-
-    console.log(html);
 
     fs.writeFile(path.join(settings.outputDir, path.basename(filePath)), html, function (err) {
       if (err) return console.log(err);

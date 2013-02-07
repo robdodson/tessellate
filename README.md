@@ -1,24 +1,24 @@
 # Tessellate
 
-Tessellate watches your project directory and writes your handlebars templates to static files on save. This is great for designing in code when you want to reuse elements across multiple pages. Tessellate is intended for folks who don't want to or are not comfortable writing a bunch of JavaScript. Instead you can follow the patterns laid out in the example to have a project of reusable elements which render to static files.
+Tessellate watches your project directory and writes your hogan templates to static files on save. This is great for designing in code when you want to reuse elements across multiple pages. Tessellate is intended for folks who don't want to write a bunch of Javascript. Instead you can follow the patterns laid out in the example to have a project of reusable elements which render to static files.
 
 ## TODO
 
 - Tidy HTML?
-- Register partials on a new .handlebars event
+- Register partials on a new .hogan event
 - Indicate the name of a missing partial
 
 ## Guide
 
 OK first thing's first. `npm install -g tessellate`
 
-Navigate into a project directory and run `tessellate` from the command line. Tessellate is now watching your project, keeping an eye out for any handlebars tags that it can compile.
+Navigate into a project directory and run `tessellate` from the command line. Tessellate is now watching your project, keeping an eye out for any hogan tags that it can compile.
 
 It's probably a good idea to clone this repo or download the zip so you can access the example project. The example project shows off some of the features supported by tessellate.
 
 ### Partials
 
-To add a partial to your page just use the `{{> }}` handlebars syntax.
+To add a partial to your page just use the `{{> }}` hogan syntax.
 
 ```
 <!DOCTYPE html>
@@ -55,6 +55,6 @@ Usage: tessellate [options]
     -c, --contexts-dir <path>      the location of your context files [./contexts]
     -o, --output-dir <path>        where to output files [./dist]
     -e, --extension <ext>          template file extension [.html]
-    -E, --partial-extension <ext>  partial file extension [.handlebars]
+    -E, --partial-extension <ext>  partial file extension [.hogan]
     -C, --no-partial-compile-all   disable compile all on partial change
 ```
