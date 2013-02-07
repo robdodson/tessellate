@@ -19,7 +19,7 @@ program
   .option('-p, --partials-dir <path>', 'the location of your partial files [./partials]', String, './partials')
   .option('-c, --contexts-dir <path>', 'the location of your context files [./contexts]', './contexts')
   .option('-o, --output-dir <path>', 'where to output files [./dist]', './dist')
-  .option('-e, --extension <ext>', 'template file extension [.html]', '.html')
+  .option('-e, --extension <ext>', 'template file extension [.mustache]', '.mustache')
   .option('-E, --partial-extension <ext>', 'partial file extension [.mustache]', '.mustache')
   .option('-C, --no-partial-compile-all', 'disable compile all on partial change')
   .parse(process.argv);
@@ -115,7 +115,7 @@ function compile(filePath) {
       html = template.render({});
     }
 
-    fs.writeFile(path.join(settings.outputDir, path.basename(filePath)), html, function (err) {
+    fs.writeFile(path.join(settings.outputDir, path.basename(filePath, settings.baseExtension) + '.html'), html, function (err) {
       if (err) return console.log(err);
       console.log(filePath + ' > ' + path.join(settings.outputDir, path.basename(filePath)));
     });
