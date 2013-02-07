@@ -10,7 +10,7 @@ var program = require('commander'),
     fs = require('fs'),
     path = require('path'),
     watchr = require('watchr'),
-    Handlebars = require('handlebars');
+    hogan = require('hogan.js');
 
 // Commander
 program
@@ -41,7 +41,7 @@ if (!fs.existsSync(settings.outputDir)) {
 }
 
 // Make sure all of our partials are registered
-registerPartials();
+var partials = registerPartials();
 
 // Watch the baseDir for changes
 watchr.watch({
@@ -81,12 +81,16 @@ watchr.watch({
 // On program start and any time a partial is added register
 // everything in the partials dir
 function registerPartials() {
+  var partials = {};
+
   if (fs.existsSync(settings.partialsDir)) {
     fs.readdirSync(settings.partialsDir).forEach(function(file) {
-      var base = path.basename(file, path.extname(file)); // strips file extension from file name
-      Handlebars.registerPartial(base, fs.readFileSync(path.join(settings.partialsDir, file), 'utf8'));
+      var name = path.basename(file, path.extname(file)); // strips file extension from file name
+      partials[name] = fs.readFileSync(path.join(settings.partialsDir, file), 'utf8') + '\n';
     });
   }
+
+  return partials;
 }
 
 // Run our file through handlebars and write the output
@@ -98,17 +102,20 @@ function compile(filePath) {
     if (err) return console.log(err);
 
     source = data;
-    template = Handlebars.compile(source);
+    template = hogan.compile(source);
+
     // Check to see if a context file exists, if so
     // add it to the template. Otherwise send in a
     // blank object
     contextPath = './' + path.join(settings.contextsDir, path.basename(filePath, settings.baseExtension));
     if (fs.existsSync(contextPath + '.js')) {
       context = require(path.resolve(contextPath));
-      html = template(context);
+      html = template.render(context, partials);
     } else {
-      html = template({});
+      html = template.render({});
     }
+
+    console.log(html);
 
     fs.writeFile(path.join(settings.outputDir, path.basename(filePath)), html, function (err) {
       if (err) return console.log(err);
